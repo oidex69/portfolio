@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class helloworld {
-    @GetMapping("/")
-    public String helloworld() {
-        return "helloworld";
-    }
+//    @GetMapping("/")
+//    public String helloworld() {
+//        return "helloworld";
+//    }
 
-    @GetMapping("/main")
+    @GetMapping("/")
     public String aboutMe() {
         return "layout";
     }
