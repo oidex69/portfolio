@@ -8,10 +8,9 @@ import org.springframework.web.client.RestTemplate;
 public class selfping {
     private final RestTemplate rstTmp = new RestTemplate();
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 50000)
     public void ping() {
         System.out.println("refreshed");
         rstTmp.getForObject("https://portfolio-gfky.onrender.com/",String.class);
-
     }
 }

@@ -1,0 +1,11 @@
+<div th:fragment="my-project">
+    <div class="projects">
+
+        <div th:each="p : ${projects}">
+            <h3>
+                <a th:href="@{${'/' + p.path}}" th:text="${p.name}"></a>
+            </h3>
+        </div>
+
+    </div>
+</div>
