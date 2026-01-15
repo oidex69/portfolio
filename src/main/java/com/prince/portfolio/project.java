@@ -9,6 +9,7 @@ public class project {
     private String slug;
     private String image;
     private String description;
+    private String githubUrl;
     private List<Tech> techStack;
 
     public project(String name,
@@ -16,6 +17,7 @@ public class project {
                    String path,
                    String image,
                    String description,
+                   String githubUrl,
                    List<Tech> techStack) {
 
         this.name = name;
@@ -23,6 +25,7 @@ public class project {
         this.path = path;
         this.image = image;
         this.description = description;
+        this.githubUrl = githubUrl;
         this.techStack = techStack;
     }
 
@@ -49,4 +52,6 @@ public class project {
     public List<Tech> getTechStack() {
         return techStack;
     }
+
+    public String getGithubUrl() { return githubUrl; }
 }

@@ -4,6 +4,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:if="${onCheckStyle}" th:href="@{/css/onCheck.css}">
+    <link rel="stylesheet" th:if="${realStateStyle}" th:href="@{/css/realState.css}">
 </head>
 <body>
 
@@ -29,9 +30,6 @@
             <div th:replace="realState :: realState"></div>
         </div>
     </div>
-
-
-
 </div>
 </body>
 </html>

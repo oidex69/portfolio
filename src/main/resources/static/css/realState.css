@@ -1,18 +1,19 @@
-.oncheck {
+.realstate {
     max-width: 900px;
     margin: 0 auto;
     padding: 24px;
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
     line-height: 1.6;
 }
-.oncheck-header {
+
+.realstate-header {
     text-align: left;
 }
 
-.oncheck-header-top {
+.realstate-header-top {
     display: flex;
-    align-items: center;            /* vertical alignment */
-    justify-content: space-between; /* title left, GitHub right */
+    align-items: center;        /* vertical alignment */
+    justify-content: space-between; /* h2 left, github right */
     width: 100%;
 }
 
@@ -22,6 +23,7 @@
     opacity: 0.85;
     transition: opacity 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+    box-shadow: 0px 0px 27px rgb(255 255 255 / 4%);
 }
 
 .github-icon:hover {
@@ -29,37 +31,38 @@
     transform: scale(1.1);
 }
 
-.oncheck-header h2 {
+
+.realstate-header h2 {
     margin-bottom: 4px;
     font-size: 1.8rem;
 }
 
-.oncheck-subtitle {
+.realstate-subtitle {
     color: #b0b0b0;
     font-size: 0.95rem;
 }
 
-.oncheck-description,
-.oncheck-status {
+.realstate-description,
+.realstate-status {
     margin-top: 16px;
 }
 
-.oncheck-images {
+.realstate-images {
     display: flex;
-    flex-direction: column;   /* column-wise layout */
+    flex-direction: column;
     gap: 20px;
     margin: 24px 0;
     align-items: center;
 }
 
-.oncheck-images figure {
+.realstate-images figure {
     margin: 0;
     width: 100%;
     max-width: 600px;
     text-align: center;
 }
 
-.oncheck-images img {
+.realstate-images img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -68,27 +71,26 @@
     cursor: pointer;
 }
 
-/* Enlarge on hover */
-.oncheck-images img:hover {
+.realstate-images img:hover {
     transform: scale(1.08);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-.oncheck-images figcaption {
+.realstate-images figcaption {
     margin-top: 8px;
     font-size: 0.85rem;
     color: #a0a0a0;
 }
 
-.oncheck-learning h3 {
+.realstate-learning h3 {
     margin-top: 24px;
     margin-bottom: 8px;
 }
 
-.oncheck-learning ul {
+.realstate-learning ul {
     padding-left: 18px;
 }
 
-.oncheck-learning li {
+.realstate-learning li {
     margin-bottom: 6px;
 }

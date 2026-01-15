@@ -1,15 +1,23 @@
-<div th:fragment="my-project">
+<div th:fragment="my-project" id="projects">
+    <h2>My Projects</h2>
+
     <div class="project-grid">
         <a th:each="p : ${projects}"
            th:href="@{${'/' + p.path}}"
-            class = "project-card">
+           class="project-card">
+
             <div class="project-image-wrapper">
+
+                <!-- GitHub overlay (no nested anchor) -->
+                <div class="github-overlay"
+                     th:attr="data-github=${p.githubUrl}">
+                    <img th:src="@{/images/github-logo.png}" alt="github">
+                </div>
 
                 <img th:src="@{${p.image}}"
                      th:alt="${p.name}"
                      class="project-preview">
 
-                <!-- Tech overlay (always visible) -->
                 <div class="tech-overlay">
                     <p th:each="t : ${p.techStack}">
                         <img th:src="@{${t.icon}}" th:alt="${t.name}">
@@ -25,6 +33,5 @@
             </div>
 
         </a>
-
     </div>
 </div>
