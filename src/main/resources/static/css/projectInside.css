@@ -1,0 +1,95 @@
+.projectIn {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+}
+
+.projectIn-header {
+    text-align: left;
+}
+
+.projectIn-header-top {
+    display: flex;
+    align-items: center;            /* vertical alignment */
+    justify-content: space-between; /* title left, GitHub right */
+    width: 100%;
+}
+
+.github-icon {
+    width: 28px;
+    height: 28px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.github-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.projectIn-header h2 {
+    margin-bottom: 4px;
+    font-size: 1.8rem;
+}
+
+.projectIn-subtitle {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.projectIn-description,
+.projectIn-status {
+    margin-top: 16px;
+}
+
+.projectIn-images {
+    display: flex;
+    flex-direction: column;   /* column-wise layout */
+    gap: 20px;
+    margin: 24px 0;
+    align-items: center;
+}
+
+.projectIn-images figure {
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.projectIn-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+/* Enlarge on hover */
+.projectIn-images img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.projectIn-images figcaption {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+
+.projectIn-learning h3 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.projectIn-learning ul {
+    padding-left: 18px;
+}
+
+.projectIn-learning li {
+    margin-bottom: 6px;
+}

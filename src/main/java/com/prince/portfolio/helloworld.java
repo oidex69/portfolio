@@ -3,6 +3,8 @@ package com.prince.portfolio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,12 +13,11 @@ import java.util.Map;
 
 @Controller
 public class helloworld {
-    private final String projectLocation = "project";
     Map<String,project> prj = new HashMap<>();
 
     public helloworld() {
-        prj.put("onCheck", new project("onCheck",
-                "onCheck",
+        prj.put("On Check", new project("On Check",
+                "projectInside",
                 "/images/onCheck/onCheckFrontUi.png",
                 "A Java-based application built with Maven, following standard enterprise development practices.",
                 "This project implements a predictive analytics web application for estimating residential property values, " +
@@ -30,18 +31,32 @@ public class helloworld {
                         " clear feature definitions, and versioning, it can evolve into a" +
                         " production-ready or showcase-level application.",
                 "https://github.com/oidex69/onCheck",
+                //
                 List.of(
                         new Tech("Java", "/images/java-logo.png"),
                         new Tech("Spring Boot", "/images/spring-boot-logo.png"),
                         new Tech("HTML", "/images/html-logo.png")
                 ),
+                // Map of picture to be shown
                 Map.of(
                         "Main Interface", "/images/onCheck/onCheckFrontUi.png",
-                        "Login Interface", "/images/onCheck/onCheckLoginUi.png" )
+                        "Login Interface", "/images/onCheck/onCheckLoginUi.png" ),
+//              Map Of features of the program
+                Map.of(
+                  "Tally","Better Tally method",
+                  "Safe Storage", "Best for Storing tallies per Date"
+                ),
+                // List of What i've Learned
+                List.of(
+                        "Structuring a Java project using Maven best practices",
+                        "Separating backend logic from presentation concerns",
+                        "Building and styling a simple UI for a Java-based application"
+                )
         ));
-        prj.put("realState", new project(
+
+        prj.put("Real State", new project(
                 "Real State",
-                projectLocation,
+                "onCheck",
                 "/images/realState/realStateHomePage.png",
                 "A machine learning–driven real estate price prediction system built using Spring Boot.",
                 "This project implements a predictive analytics web application for estimating residential property values,\n" +
@@ -63,55 +78,66 @@ public class helloworld {
                         new Tech("Html","/images/html-logo.png"),
                         new Tech("Css","/images/css-logo.png"),
                         new Tech("Mysql","/images/mysql-logo.png"),
-                        new Tech("JavaScript","/javascript-logo.png")
+                        new Tech("JavaScript","images/javascript-logo.png")
                 ),
                 Map.of(
                         "Home Page","images/realState/realStateHomePage.png",
                         "House Price Prediction","images/realState/homePricePrediction.png",
                         "Land Price Prediction","images/realState/landpriceprediction.png"
+                ),
+                Map.of(
+                        "Home Price Prediction"," Machine learning models that estimate property values for residential units based on key features (size, number of rooms, location factors, age, etc.).",
+                        "Land Price Prediction","Dedicated estimation functionality for land parcels,incorporating metrics such as plot area, zoning classification, and geographic descriptors.",
+                        "Modular Code Structure"," Modular Code Structure: MVC framework separation for maintainability, testability, and extensibility."
+                ),
+                List.of(
+                        "Integrating machine learning prediction logic into a Java backend",
+                        "Processing and validating user input before model inference",
+                        "Structuring a Java project using Maven best practices"
                 )
-
-
         ));
     }
 
     @GetMapping("/")
-    public String aboutMe(Model m) {
-        m.addAttribute("activePage","home");
-
-//        prj.add(new project("realState","realState","realState",));
-//        prj.add(new project("realState",
-//                "realState",
-//                "/images/realState/realStateHomePage.png",
-//                "A java-based Spring Boot Application.",
-//                "https://github.com/oidex69/housePricePrediction",
-//                List.of(
-//                        new Tech("Java","/images/java-logo.png"),
-//                        new Tech("Spring Boot", "/images/spring-boot-logo.png"),
-//                        new Tech("HTML", "/images/html-logo.png"),
-//                        new Tech("Css", "/images/css-logo.png"),
-//                        new Tech("Mysql", "/images/mysql-logo.png"),
-//                        new Tech("JavaScript", "/images/javascript-logo.png")
-//                )
-//                ));
-
+    public String aboutMe(
+            @RequestParam(required = false) String visitingPage,
+            Model m
+            ) {
+        m.addAttribute("loadPage","home");
         m.addAttribute("projects",prj);
         m.addAttribute("projects",prj);
         return "layout";
     }
 
-    @GetMapping("/onCheck")
-    public String onCheck(Model m) {
-        m.addAttribute("activePage","onCheck");
-        m.addAttribute("onCheckStyle",true);
-        m.addAttribute("projects",prj);
+    @GetMapping("/{projectKey}")
+    public String onCheck(
+            @PathVariable String projectKey,
+            @RequestParam(required = false) String visitingPage,
+            Model m
+            ) {
+
+        project selectedProject = prj.get(visitingPage);
+
+        if(selectedProject == null) {
+            return "error/404";
+        }
+
+        m.addAttribute("project",selectedProject);
+        m.addAttribute("projectInsideStyle",true);
+        m.addAttribute("activePage",visitingPage);
+        m.addAttribute("loadPage","projectInside");
         return "layout";
     }
 
     @GetMapping("/realState")
-    public String realState(Model m) {
+    public String realState(
+            @RequestParam(required = false) String visitingPage,
+            Model m) {
+        m.addAttribute("visitingPage",visitingPage);
         m.addAttribute("activePage","realState");
         m.addAttribute("realStateStyle",true);
         return "layout";
     }
+
+
 }

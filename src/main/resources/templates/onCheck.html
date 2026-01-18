@@ -1,40 +1,41 @@
-    <div th:fragment="onCheck" class="oncheck">
-        <div th:object = "${projects['onCheck']}">
-            <header class="oncheck-header">
-                <div class="oncheck-header-top">
-                    <h2 th:text = "*{name}"></h2>
-                    <a th:href="*{githubUrl}" target="_blank">
-                        <img th:src="@{/images/github-logo.png}" alt="github" class="github-icon">
-                    </a>
-                </div>
-                <p class="oncheck-subtitle" th:text="*{subtitle}">
-                </p>
-            </header>
+        <div th:fragment="onCheck" class="oncheck">
+            <div th:object = "${project}">
+                <header class="oncheck-header">
+                    <div class="oncheck-header-top">
+                        <h2 th:text = "*{name}"></h2>
+                        <a th:href="*{githubUrl}" target="_blank">
+                            <img th:src="@{/images/github-logo.png}" alt="github" class="github-icon">
+                        </a>
+                    </div>
+                    <p class="oncheck-subtitle" th:text="*{subtitle}">
+                    </p>
+                </header>
 
-            <section class="oncheck-description">
-                <p th:text="*{description}">
-                </p>
-            </section>
+                <section class="oncheck-description">
+                    <p th:text="*{description}">
+                    </p>
+                </section>
 
-            <section class="oncheck-images">
-                <figure th:each="p : *{imageUrl}">
-                    <img th:src="@{${p.value}}"
-                         alt="Project Screen Shot">
-                    <figcaption th:text="${p.key}"></figcaption>
-                </figure>
-            </section>
+                <section class="oncheck-images">
+                    <figure th:each="p : *{imageUrl}">
+                        <img th:src="@{${p.value}}"
+                             alt="Project Screen Shot">
+                        <figcaption th:text="${p.key}"></figcaption>
+                    </figure>
+                </section>
 
-            <section class="oncheck-status">
-                <p th:text = "*{status}"></p>
-            </section>
+                <section class="oncheck-status">
+                    <p th:text = "*{status}"></p>
+                </section>
 
-            <section class="oncheck-learning">
-                <h3>What I Learned / Achieved</h3>
-                <ul>
-                    <li>Structuring a Java project using Maven best practices</li>
-                    <li>Separating backend logic from presentation concerns</li>
-                    <li>Building and styling a simple UI for a Java-based application</li>
-                </ul>
-            </section>
+                <section class="oncheck-learning">
+                    <h3>What I Learned / Achieved</h3>
+                    <ul th:each="l : *{learned}">
+                        <li th:text="${l}"></li>
+    <!--                    <li>Structuring a Java project using Maven best practices</li>-->
+    <!--                    <li>Separating backend logic from presentation concerns</li>-->
+    <!--                    <li>Building and styling a simple UI for a Java-based application</li>-->
+                    </ul>
+                </section>
+            </div>
         </div>
-    </div>

@@ -3,7 +3,7 @@
 
     <div class="project-grid">
         <a th:each="p : ${projects}"
-           th:href="@{${'/' + p.value.path}}"
+           th:href="@{${'/' + p.value.path}(visitingPage=${p.value.name})}"
            class="project-card">
 
             <div class="project-image-wrapper">

@@ -3,7 +3,7 @@
 <head>
     <title>Portfolio</title>
     <link rel="stylesheet" th:href="@{/css/layout.css}">
-    <link rel="stylesheet" th:if="${onCheckStyle}" th:href="@{/css/onCheck.css}">
+    <link rel="stylesheet" th:if="${projectInsideStyle}" th:href="@{/css/projectInside.css}">
     <link rel="stylesheet" th:if="${realStateStyle}" th:href="@{/css/realState.css}">
 </head>
 <body>
@@ -12,18 +12,23 @@
     <!-- Nav Bar -->
     <div th:replace="~{nav/navBar :: navBar}"></div>
 
-    <div th:switch="${activePage}">
+    <div th:switch="${loadPage}">
 
         <div th:case="home">
             <!-- About Me -->
             <div th:replace="~{aboutMe :: aboutMe}"></div>
 
+            <!-- Project List-->
             <div th:replace="~{projects :: my-project}"></div>
+
+            <!-- Education-->
+
+
 
         </div>
 
-        <div th:case="onCheck">
-            <div th:replace="onCheck :: onCheck"></div>
+        <div th:case="projectInside">
+            <div th:replace="projectInside :: project"></div>
         </div>
 
         <div th:case="realState">

@@ -16,6 +16,7 @@ public class project {
     private String githubUrl;
     private List<Tech> techStack;
     private Map<String,String> imageUrl;
+    private Map<String, String> feature;
     private List<String> learned;
 
     public project(String name,
@@ -26,7 +27,9 @@ public class project {
                    String status,
                    String githubUrl,
                    List<Tech> techStack,
-                   Map<String,String> imageUrl) {
+                   Map<String,String> imageUrl,
+                   Map<String, String> feature,
+                   List<String> learned) {
 
         this.name = name;
         this.path = path;
@@ -37,7 +40,8 @@ public class project {
         this.githubUrl = githubUrl;
         this.techStack = techStack;
         this.imageUrl = imageUrl;
-        this.learned = learned
+        this.feature = feature;
+        this.learned = learned;
     }
 
     public String getName() {
@@ -67,6 +71,8 @@ public class project {
     public String getGithubUrl() { return githubUrl; }
 
     public Map<String, String> getImageUrl() { return imageUrl; }
+
+    public Map<String,String> getFeature() {return feature; }
 
     public List<String> getLearned() { return learned;}
 }
