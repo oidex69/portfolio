@@ -3,23 +3,23 @@
 
     <div class="project-grid">
         <a th:each="p : ${projects}"
-           th:href="@{${'/' + p.path}}"
+           th:href="@{${'/' + p.value.path}}"
            class="project-card">
 
             <div class="project-image-wrapper">
 
                 <!-- GitHub overlay (no nested anchor) -->
                 <div class="github-overlay"
-                     th:attr="data-github=${p.githubUrl}">
+                     th:attr="data-github=${p.value.githubUrl}">
                     <img th:src="@{/images/github-logo.png}" alt="github">
                 </div>
 
-                <img th:src="@{${p.image}}"
-                     th:alt="${p.name}"
+                <img th:src="@{${p.value.image}}"
+                     th:alt="${p.value.name}"
                      class="project-preview">
 
                 <div class="tech-overlay">
-                    <p th:each="t : ${p.techStack}">
+                    <p th:each="t : ${p.value.techStack}">
                         <img th:src="@{${t.icon}}" th:alt="${t.name}">
                         <span th:text="${t.name}"></span>
                     </p>
@@ -28,8 +28,8 @@
             </div>
 
             <div class="project-info">
-                <h2 th:text="${p.name}"></h2>
-                <p th:text="${p.description}"></p>
+                <h2 th:text="${p.value.name}"></h2>
+                <p th:text="${p.value.subtitle}"></p>
             </div>
 
         </a>
