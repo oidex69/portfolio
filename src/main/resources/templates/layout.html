@@ -4,7 +4,6 @@
     <title>Portfolio</title>
     <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:if="${projectInsideStyle}" th:href="@{/css/projectInside.css}">
-    <link rel="stylesheet" th:if="${realStateStyle}" th:href="@{/css/realState.css}">
 </head>
 <body>
 
@@ -22,17 +21,13 @@
             <div th:replace="~{projects :: my-project}"></div>
 
             <!-- Education-->
-
+            <div th:replace="~{}"></div>
 
 
         </div>
 
         <div th:case="projectInside">
             <div th:replace="projectInside :: project"></div>
-        </div>
-
-        <div th:case="realState">
-            <div th:replace="realState :: realState"></div>
         </div>
     </div>
 </div>

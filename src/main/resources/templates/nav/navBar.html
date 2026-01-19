@@ -2,7 +2,17 @@
     <nav>
         <a th:href="@{/#about}">about</a>
         <a th:href="@{/#projects}">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact Me</a>
+        <a th:href="@{/#experience}">Experience</a>
+        <a th:href="@{/#education}">education</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=shresthaprince222@gmail.com"
+           onclick="return confirmRedirect()"
+           target="_blank">
+            Contact Me
+        </a>
     </nav>
+    <script>
+        function confirmRedirect() {
+            return confirm("Do you want to open Gmail to send an email?");
+        }
+    </script>
 </div>
